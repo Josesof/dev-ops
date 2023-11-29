@@ -1,0 +1,125 @@
+Comandos DOCKER
+NOTA: Reemplazar nombreobjeto por el nombre o id de imagen o contenedor segun coresponda en el comando
+
+1- Descargar la imagen billingapp
+
+docker pull sotobotero/udemy-devops:0.0.1
+
+Crear el contenedor billingapp
+
+docker run -p 80:80 -p  8080:8080 --name billingapp sotobotero/udemy-devops:0.0.1
+
+Listar los contenedores existentes ver su estado
+
+docker ps -a
+
+Detener un contenedor
+
+docker stop nombreobjeto 
+
+Detener todos los contenedores
+docker stop $(docker ps -a -q)
+
+Ver los logs de un contenedor
+
+docker logs nombreobjeto 
+
+Iniciar un contenedor detenido
+
+docker start nombreobjeto 
+
+Listar las imagenes locales
+
+docker image ls
+
+Eliminar una imagen 
+
+docker image rm nombreobjeto
+
+Eliminar todas las imagenes, volumenes, redes, contenedores
+
+docker system prune --all
+
+Comandos usados en la clase de docker compose
+
+Descargar las imagenes usndo docker-compose
+
+docker-compose -f stackdb.yml pull
+
+Inicar los contenedores
+
+docker-compose -f  ruta del archivo/stackdb.yml up -d
+
+Inicar los contenedores recreando lo que tenemos
+
+docker-compose -f stack-billing.yml up -d --force-recreate
+
+
+docker-compose -f stack-billing.yml build
+
+docker ps -a
+
+Url de la inteface de adminer
+
+http://localhost:9090/
+
+Los comandos nuevos utilizados son para crear una imagen:
+
+Costruir la imagen
+
+docker build -t billingapp:prod --no-cache --build-arg JAR_FILE=target/*.jar .
+
+Levantar el contendor para probar
+
+docker run -p 80:80 -p  8080:8080 --name billingapp billingapp:prod
+
+Darle un nuevo tag
+
+docker tag billingapp:prod sotobotero/udemy-devops:0.0.2
+
+loguearse en el docker engine hacia docker hub
+
+docker login (usas tu usario y contraseña)
+
+hacer un push de la imagen
+
+docker push sotobotero/udemy-devops:0.0.2
+
+Iniciar minikube
+minikube start
+
+
+Ver status de minikube
+minikube status
+
+DashBoard minikube
+minikube dashboard --url
+ 
+Detener minikube
+minikube stop 
+
+
+
+kubectl run kbillingapp --image=sotobotero/udemy-devops:0.0.1 --port=80 80
+
+kubectl get pods
+
+
+kubectl describe pod kbillingapp
+
+
+
+
+
+
+-----------------------------------------------------------
+taller back-end
+confluence
+https://company-software.atlassian.net/wiki/spaces/~5e876f239e34c00c17f10cb3/pages/33125/Servicios+de+categorias
+
+
+Node Address: 192.168.65.4
+
+docker stop loving_mcclintock
+
+
